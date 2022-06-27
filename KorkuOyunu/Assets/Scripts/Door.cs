@@ -32,7 +32,7 @@ public class Door : MonoBehaviour
                 if (locked2 == false)
                 {
                     intText.SetActive(true);
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyUp(KeyCode.E))
                     {
                         door_closed.SetActive(false);
                         door_opened.SetActive(true);

@@ -21,7 +21,7 @@ public class KitliKapi : MonoBehaviour
         {
             kitliyim = false;
         }
-        Debug.Log(kitliyim);
+        //Debug.Log(kitliyim);
     }
 
     public void ac()

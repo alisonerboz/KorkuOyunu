@@ -15,7 +15,7 @@ public class LightScript : MonoBehaviour
             {
                 flashligt_ground.SetActive(false);
                 inticon.SetActive(false);
-                flashlight_player.SetActive(true);
+                flashlight_player.SetActive(false);
             }
         }
     }
