@@ -5,23 +5,28 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject isik;
+    public GameObject yesil;
+    public GameObject kirmizi;
     bool isikDurum=false;
-
+    bool feneralindi = false;
     AudioSource ses;
+    public GameObject fenercigim;
     void Start()
     {
         isik.SetActive(false);
-        ses = GetComponent<AudioSource>();
+        yesil.SetActive(true);
+        kirmizi.SetActive(false);
+        ses =fenercigim.GetComponent<AudioSource>();
     }
 
     
     void Update()
     {
-        if(Input.GetButtonUp("Fire2") && isikDurum==false)
+        if(Input.GetButtonUp("Fire2") && isikDurum==false&& feneralindi == true)
         {
             StartCoroutine(isikAc());
         }
-        if(Input.GetButtonUp("Fire2") && isikDurum == true)
+        if(Input.GetButtonUp("Fire2") && isikDurum == true&& feneralindi == true)
         {
             StartCoroutine(isikKapa());
         }
@@ -37,6 +42,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("ac"+isikDurum);
         isik.SetActive(true);
         isikDurum = true;
+        kirmizi.SetActive(true);
+        yesil.SetActive(false);
+        ses.Play();
+
     }
     IEnumerator isikKapa()
     {
@@ -44,5 +53,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("kapa" + isikDurum);
         isik.SetActive(false);
         isikDurum = false;
+        yesil.SetActive(true);
+        kirmizi.SetActive(false);
+        ses.Play();
+
+    }
+    public void feneraldi()
+    {
+        feneralindi = true;
     }
 }

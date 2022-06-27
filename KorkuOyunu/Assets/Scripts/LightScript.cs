@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class LightScript : MonoBehaviour
 {
-    public GameObject flashligt_ground, inticon, flashlight_player;
+    public GameObject inticon ,flashligt_ground, flashlight_player;
+    GameManager gm;
+
+    private void Start()
+    {
+        gm = FindObjectOfType<GameManager>();
+    }
 
     void OnTriggerStay(Collider other)
     {
@@ -15,7 +21,8 @@ public class LightScript : MonoBehaviour
             {
                 flashligt_ground.SetActive(false);
                 inticon.SetActive(false);
-                flashlight_player.SetActive(false);
+                flashlight_player.SetActive(true);
+                gm.feneraldi();
             }
         }
     }
